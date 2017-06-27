@@ -15,12 +15,9 @@ function agregarEstudiante() {
         estudiante.puntosTecnicos = parseInt(prompt("Debes ingresar tus puntos técnicos"));
         estudiante.puntosHSE = parseInt(prompt("Debes ingresar tus puntos HSE"));
     
-
-
     estudiantes.push(estudiante);
 
     return estudiante;
-
 }
     
   function mostrar(estudiante) {
@@ -43,36 +40,26 @@ function agregarEstudiante() {
 function mostrarLista(estudiantes) {
     // TO DO: Iterar la lista del estudiantes para devolverlos en el formato que usa la función mostrar(estudiante)
     // Retornar el template de todos los estudiantes
- return estudiantes.map(mostrar);
-   /*var lista_estudiante = "";
-
-    estudiantes.forEach(function (estudiante){
-      lista_estudiante+= mostrar(estudiante);
-      return lista_estudiante;
-    });
-
-    return lista_estudiante; */  
-}
+    return estudiantes.map(mostrar); //Con el método map() podemos simplificar nuestro código y esto nos mostrará la lista de estudiantes agregados.
+       }
 
 function buscar(nombre, estudiantes) {
     // TO DO: Buscar el nombre en la lista de estudiantes que se recibe por parámetros
     // Retornar el objeto del estudiante buscado
     // Nota: NO IMPORTA SI EL USUARIO ESCRIBE EL NOMBRE EN MAYÚSCULAS O MINÚSCULAS
     
-    nombre = nombre.toLowerCase();
-    var encontrar = estudiantes.filter(function(alumnos){
-      return alumnos.nombre == nombre;
+    nombre = nombre.toLowerCase(); 
+    var encontrar = estudiantes.filter(function(busqueda){
+      return busqueda.nombre == nombre;
     })
-    
-    return encontrar[0];
+      return encontrar[0];
 }
-    
 
 function topTecnico(estudiantes) {
     // TO DO: Retornar el arreglo de estudiantes ordenado por puntaje técnico de mayor a menor
  
-    var puestoTecnico = estudiantes.sort(function(a, b){
-      return a.puntosTecnicos < b.puntosTecnicos;
+    var puestoTecnico = estudiantes.sort(function(x, y){
+      return x.puntosTecnicos < y.puntosTecnicos;
     });
 
     return puestoTecnico;   
@@ -80,9 +67,8 @@ function topTecnico(estudiantes) {
 
 function topHSE(estudiantes) {
     // TO DO: Retornar el arreglo de estudiantes ordenado por puntaje de HSE de mayor a menor
-    var puestoHSE = estudiantes.sort(function(a,b){
-          return b.puntosHSE - a.puntosHSE;
+    var puestoHSE = estudiantes.sort(function(x,y){
+          return x.puntosHSE - y.puntosHSE;
         });
-
         return puestoHSE;
 }
